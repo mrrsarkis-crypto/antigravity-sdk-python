@@ -1,0 +1,8 @@
+{
+  "repo": "mrrsarkis-crypto/antigravity-sdk-python",
+  "description": "A Python library for building AI agents that leverage the full power of Google Antigravity.",
+  "languages": [
+    { "name": "Python", "percent": 98 },
+    { "name": "Shell", "percent": 2 }
+  ]
+}
