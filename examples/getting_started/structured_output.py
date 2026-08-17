@@ -23,11 +23,10 @@ When and Why to Use Structured Output:
   to be ingested directly by downstream databases, APIs, or workflows (e.g.,
   populating a task manager, booking calendar slots, or feeding microservices).
 - **Strict Schema Validation**: To ensure type safety, required fields, and
-strict
-  data constraints on model outputs, mitigating fragile parsing/regex matching.
+  strict data constraints on model outputs, mitigating fragile parsing/regex
+  matching.
 - **Native Guidance**: Fulfilling a configured `response_schema` natively guides
-the
-  underlying model's reasoning loop and final output to match the schema
+  the underlying model's reasoning loop and final output to match the schema
   perfectly.
 
 In this example, the agent uses a custom mock tool to retrieve raw unstructured
@@ -47,9 +46,11 @@ Criteria for correct script performance:
 """
 
 import asyncio
+
+import pydantic
+
 from google.antigravity import Agent
 from google.antigravity import LocalAgentConfig
-import pydantic
 
 
 class ActionItem(pydantic.BaseModel):
@@ -76,9 +77,15 @@ class MeetingSummary(pydantic.BaseModel):
   action_items: list[ActionItem]
 
 
-# A custom mock tool that retrieves unstructured text data
 async def fetch_unstructured_meeting_notes(meeting_id: str) -> str:
-  """Retrieves the raw unstructured notes for a given meeting ID."""
+  """Retrieves the raw unstructured notes for a given meeting ID.
+
+  Args:
+    meeting_id: The meeting identifier.
+
+  Returns:
+    The unstructured meeting notes as a string.
+  """
   if meeting_id == "meeting-2026-05":
     return (
         "Discussed launch timeline for project X. Alice agreed to update"

@@ -56,6 +56,7 @@ async def print_response_chunks(response) -> None:
 
 
 async def main() -> None:
+  """Main entry point."""
   # Use a temporary directory for workspace and app_data_dir to prevent clutter
   # and ensure write access in all testing environments.
   with tempfile.TemporaryDirectory() as tmpdir:
@@ -114,7 +115,7 @@ async def main() -> None:
             "❌ Error: File does not exist at agent-reported path:"
             f" '{plan_path}'!\n"
         )
-        exit(1)
+        exit(1)  # pylint: disable=consider-using-sys-exit
 
 
 if __name__ == "__main__":

@@ -31,6 +31,7 @@ from google.antigravity import LocalAgentConfig
 
 
 async def main() -> None:
+  """Main entry point."""
   config = LocalAgentConfig()
 
   async with Agent(config) as my_agent:

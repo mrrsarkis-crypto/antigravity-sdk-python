@@ -23,13 +23,13 @@ To run:
 
 import asyncio
 import os
+import sys
 
 from google.antigravity import Agent
 from google.antigravity import LocalAgentConfig
 from google.antigravity import types
 from google.antigravity.hooks import policy
 
-import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from resources import mcp_server
 
@@ -53,9 +53,6 @@ async def mcp_stdio() -> None:
     print(f"  User: {prompt}")
     response = await my_agent.chat(prompt)
     print(f"  Agent: {await response.text()}")
-
-
-
 
 
 async def mcp_http() -> None:
@@ -120,8 +117,8 @@ async def mcp_policies() -> None:
       args=[mcp_server_path, "--transport=stdio"],
   )
 
-  # Define safety policies. Note that we can now pass `stdio_server` (BaseMcpServerConfig)
-  # directly to the policy builders!
+  # Define safety policies. Note that we can now pass `stdio_server`
+  # (BaseMcpServerConfig) directly to the policy builders!
   policies = [
       policy.deny_all(),
       policy.allow(stdio_server, ["pirate_multiply"]),  # Allow pirate_multiply
@@ -145,6 +142,7 @@ async def mcp_policies() -> None:
 
 
 async def main() -> None:
+  """Main entry point."""
   await mcp_stdio()
   await mcp_filtering()
   await mcp_policies()

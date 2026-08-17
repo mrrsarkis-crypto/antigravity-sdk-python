@@ -43,11 +43,12 @@ Criteria for correct script performance:
 """
 
 import asyncio
+import pydantic
+
 from google.antigravity import Agent
 from google.antigravity import LocalAgentConfig
 from google.antigravity import types
 from google.antigravity.hooks import policy
-import pydantic
 
 
 class RunCommandArgs(pydantic.BaseModel):
@@ -96,6 +97,7 @@ def programmatic_approval_handler(tool_call: types.ToolCall) -> bool:
 
 
 async def main() -> None:
+  """Main entry point."""
   print("  === Tool Call Policies Demo ===")
 
   # Configure policies using the recommended "Deny by Default" posture.

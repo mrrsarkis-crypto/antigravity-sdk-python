@@ -22,8 +22,8 @@ import socket
 import sys
 from typing import Literal, Sequence
 
-from mcp.server.fastmcp import server
 import uvicorn
+from mcp.server.fastmcp import server
 
 Transport = Literal["stdio", "sse", "streamable-http"]
 
@@ -121,6 +121,11 @@ async def run(transport: str) -> AsyncIterator[int]:
 
 
 def main(argv: Sequence[str]) -> None:
+  """Entry point for MCP server.
+
+  Args:
+    argv: Command-line arguments.
+  """
   parser = argparse.ArgumentParser(description="MCP server for pirate math.")
   parser.add_argument(
       "--port", type=int, default=8000, help="Port to listen on."
