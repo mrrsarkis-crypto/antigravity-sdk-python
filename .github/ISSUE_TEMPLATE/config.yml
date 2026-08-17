@@ -1,1 +1,16 @@
+Sorry, your request failed. Please try again.
+
+Client Request Id: 5aa63038-c31a-4acc-a047-be89bb82e786
+
+Reason: DeepSeek API key not configured. Run "DeepSeek: Set API Key" from the Command Palette.: Error: DeepSeek API key not configured. Run "DeepSeek: Set API Key" from the Command Palette. at prepareChatRequest (c:\Users\arpin.vscode\extensions\vizards.deepseek-v4-for-copilot-0.7.1\out\provider\request.js:18:15) at async DeepSeekChatProvider.provideLanguageModelChatResponse (c:\Users\arpin.vscode\extensions\vizards.deepseek-v4-for-copilot-0.7.1\out\provider\index.js:143:26)
+
 blank_issues_enabled: false
+Based on the Copilot chat in your current tab, here are the common causes for Git push errors:
+
+No Push Access: You do not have write permissions to the repository (often resulting in a "Permission to ... denied" error).
+
+Authentication Issues: Your SSH key is missing or incorrect, or your HTTPS credentials/Personal Access Token (PAT) are not configured properly.
+
+Server Hooks or File Size Limits: A server-side pre-receive hook declined the push, or a file in your commit exceeds the size limit (which usually requires setting up Git LFS).
+
+Branch Protection: You are trying to push directly to a protected branch that requires pull requests (PRs) or specific status checks.
